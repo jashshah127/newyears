@@ -1,0 +1,63 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  template: `
+  <h2>
+  Welcome {{name}}!
+  </h2>
+  <h2>{{24678754131+2564515487}}</h2>
+  <h2>{{"Welcome  " + name}}</h2>
+  <h2>{{name.length}}</h2>
+  <h2>{{name.toUpperCase()}}</h2>
+  <h2>{{name.toLowerCase()}}</h2>
+  `,
+  style: []
+})
+export class TestComponent implements OnInit {
+
+public name="Jash";
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+
+
+To obtain site url
+test.component.ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  template: `
+  <h2>
+  Welcome {{name}}!
+  </h2>
+  <h2>{{24678754131+2564515487}}</h2>
+  <h2>{{"Welcome  " + name}}</h2>
+  <h2>{{name.length}}</h2>
+  <h2>{{name.toUpperCase()}}</h2>
+  <h2>{{name.toLowerCase()}}</h2>
+  <h2>{{greetUser()}}</h2>
+  <h2>{{siteUrl}}</h2>
+  `,
+  style: []
+})
+export class TestComponent implements OnInit {
+
+public name="Jash";
+public siteUrl = window.location.href;
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  greetUser(){
+    return "Hello " + this.name;
+  }
+}
+

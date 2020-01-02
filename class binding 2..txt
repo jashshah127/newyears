@@ -1,0 +1,40 @@
+        import { Component, OnInit } from '@angular/core';
+
+        @Component({
+          selector: 'app-test',
+          template: `
+          <h2>
+          Welcome Wishes
+          </h2>
+          <h2 class="text-success">Code </h2>
+
+          <h2 [class.text-danger]="hasError">Code </h2>
+          
+          
+          `,
+          styles: [`
+          .text-success {
+            color: green;
+          }
+          .text-danger {
+            color: red;
+          }
+          `
+          ]
+       
+          })
+        export class TestComponent implements OnInit {
+
+        public name = "Wishes"; 
+        public hasError= 6-6;		//changes if it has any other number , say 1,2,3,..,n, the hasError should be either false or the eval of value should be 0
+
+        constructor() { }
+
+          ngOnInit() {
+          }
+
+          greetUser(){
+            return "Hello " + this.name;
+          }
+
+        } 

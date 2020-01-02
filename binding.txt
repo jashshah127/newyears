@@ -1,0 +1,68 @@
+//test.component.ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  template: `
+  <h2>
+  Welcome Wishes
+  </h2>
+  `,
+  styles: []
+})
+export class TestComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+//app.component.html
+
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    From AppComponent
+  </h1>
+  </div>
+<app-test></app-test>
+
+//app.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'binding';
+}
+
+
+//test.ts
+
+// This file is required by karma.conf.js and loads recursively all the .spec and framework files
+
+import 'zone.js/dist/zone-testing';
+import { getTestBed } from '@angular/core/testing';
+import {
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting
+} from '@angular/platform-browser-dynamic/testing';
+
+declare const require: any;
+
+// First, initialize the Angular testing environment.
+getTestBed().initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting()
+);
+// Then we find all the tests.
+const context = require.context('./', true, /\.spec\.ts$/);
+// And load the modules.
+context.keys().map(context);

@@ -1,0 +1,30 @@
+        import { Component, OnInit } from '@angular/core';
+
+        @Component({
+          selector: 'app-test',
+          template: `
+          <h2>
+          Welcome Wishes
+          </h2>
+          <h2> {{2+2}} </h2>
+          <input type="text" value="Jash">
+          <input [disabled]="false" id="{{myId}}" type="text" value="Jash">
+          
+          `,
+          styles: []
+        })
+        export class TestComponent implements OnInit {
+
+        public name = "Wishes"; 
+        public myId = "test";
+
+        constructor() { }
+
+          ngOnInit() {
+          }
+
+          greetUser(){
+            return "Hello " + this.name;
+          }
+
+        } 
