@@ -1,0 +1,91 @@
+//add.component.ts
+
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-add',
+  templateUrl: './add.component.html',
+  styleUrls: ['./add.component.css']
+})
+export class AddComponent implements OnInit {
+
+  constructor(private formBuilder: FormBuilder) { }
+  addForm:FormGroup;
+
+  ngOnInit() {
+    this.addForm=this.formBuilder.group({
+      sId: [],
+      fName: ['', Validators.required],
+      lName: ['', [Validators.required, Validators.maxLength(9)]],
+      email: ['', [Validators.required, Validators.maxLength(30)]],
+    })
+  }
+
+  onSubmit() {
+    console.log(this.addForm.value);
+  }
+}
+
+
+//app.module.ts
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
+import { AddComponent } from './add/add.component';
+import { ViewComponent } from './view/view.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    AddComponent,
+    ViewComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
+  
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+//add.component.html
+
+<div class="col-md-6">
+    <h2 class="text-center">Add Students</h2>
+    <form [formGroup]="addForm" novalidate class="form">
+        <div class="form-group">
+            <label for="sId">Student ID: </label>
+            <input type="number" formControlName="sId" placeholder="Students ID" name="sId" class="form-control" >
+    </div>
+
+    <div class="form-group">
+        <label for="fName">Students' First Name:  </label>
+        <input type="text" formControlName="fName" placeholder="Students First Name" name="fName" class="form-control" >
+</div>
+
+<div class="form-group">
+    <label for="lName">Students' Last Name:  </label>
+    <input type="text" formControlName="lName" placeholder="Students First Name" name="lName" class="form-control" >
+</div>
+
+<div class="form-group">
+    <label for="email">Students' Email:  </label>
+    <input type="email" formControlName="email" placeholder="Students Email" name="email" class="form-control" >
+</div>
+
+<button class="btn btn-success" (click)="onSubmit()">Save</button>
+
+</form>
+
+</div>
+
+//app.component.html
+
+<app-add>App</app-add>
