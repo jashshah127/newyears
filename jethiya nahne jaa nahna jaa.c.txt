@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    printf("Jethiyaaa...\n");
+    fflush(stdout);
+    
+    for(;1;)
+    {
+        printf("Nahne JAAAAA... ");
+        fflush(stdout);
+    }
+    //program's execution will never reach here...
+    printf("stop...\n");
+    return 0;
+}
